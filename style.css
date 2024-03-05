@@ -49,7 +49,7 @@ table {
 /* CSS Reset End */
 
 :root {
-  --main-font: 'Playfair', 'Georgia', serif;
+  --main-font: 'Playfair Display', 'Georgia', serif;
   --secondary-font: 'Roboto', 'Arial', 'Helvetica', sans-serif;
   --main-color: #6f8b6e;
   --background-color: #ffffff;
@@ -104,21 +104,20 @@ footer {
   gap: 4rem;
 }
 
+.flex-container {
+  display: flex;
+  gap: 1rem;
+}
+
 .flex-container-column {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
-.flex-container {
-  display: flex;
-  gap: 1rem;
-}
-
 header {
   position: relative;
   overflow: hidden;
-  z-index: -1;
 }
 
 header::after {
@@ -126,13 +125,42 @@ header::after {
   display: block;
   position: absolute;
   left:0;
-  top: 90%;
+  top: 50%;
   width: 100%;
-  height: 1000%;
-  transform-origin: bottom left;
-  transform: skewY(-5deg);
-  background-color: red;
-  z-index: -1;
+  height: 50%;
+  background-image: linear-gradient(
+    to top left,
+    var(--background-color) 50%,
+    var(--main-color) 50%
+  );
+  z-index: 1;
+}
+
+.header-card {
+  padding: 2rem;
+  gap: 2rem;
+  z-index: 2;
+}
+
+.header-label {
+  font-size: 3rem;
+  color: var(--font-light-color);
+}
+
+.header-card .card-label {
+  margin-bottom: 1rem;
+}
+
+.header-card .links-container {
+  margin-top: 1rem;
+  font-size: 1rem;
+  text-align: right;
+  justify-self: flex-end;
+}
+
+.header-card .icon {
+  height: 2rem;
+  width: auto;
 }
 
 section {
@@ -140,11 +168,8 @@ section {
   justify-content: center;
 }
 
-.header-photo,
 .footer-photo {
   align-self: end;
-  height: auto;
-  width: 15rem;
 }
 
 .icon {
@@ -166,40 +191,6 @@ section {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-
-.header-card {
-  padding: 2rem;
-  margin: 4rem;
-  gap: 2rem;
-}
-
-.header-card .links-container {
-  font-size: 1rem;
-  align-self: flex-end;
-}
-
-.header-card .icon {
-  height: 2rem;
-  width: auto;
-}
-
-.header-photo-container {
-  position: relative;
-}
-
-.header-photo {
-  object-fit: contain;
-  margin-right: 4rem;
-  width: 16rem;
-  height: 100%;
-  transform: scale(1.5);
-}
-
-.header-label {
-  position: absolute;
-  top: 0;
-  left: 0;
 }
 
 .projects-grid {
@@ -264,3 +255,45 @@ section {
   width: auto;
 }
 
+.footer-text-container {
+  flex:1;
+}
+
+.footer-photo {
+  height: 30rem;
+  width: auto;
+  
+}
+
+@media (min-width: 1200px) {
+  .header-card {
+    margin-block: 4rem;
+  }
+
+  .header-photo-container {
+    position: relative;
+    margin-left: 2rem;
+    margin-right: 4rem;
+    height: 20rem;
+  }
+
+  .header-label {
+    position: absolute;
+    z-index: 1;
+    bottom: -3rem;
+    width: 200%;
+    transform: translateX(-25%);
+    text-align: center;
+  }
+
+  .header-photo {
+    height: 100%;
+    width: auto;
+    float: left;
+    transform: scale(1.4);
+  }
+
+  .header-card-text-container {
+    clear: right;
+  }
+} 
