@@ -60,8 +60,8 @@ const loadCards = async () => {
       createTag('div', { className: 'project-card-grid' }, [
         createTag('h2', { className: 'card-label', textContent: card.title }),
         createTag('div', {}, [
-          createTag('a', { href: card.link }, [linkIcon()]),
-          createTag('a', { href: card.gitLink }, [gitIcon()])
+          createTag('a', { href: card.gitLink }, [gitIcon()]),
+          createTag('a', { href: card.link }, [linkIcon()])
         ]),
         createTag('p', { textContent: card.description })
       ])

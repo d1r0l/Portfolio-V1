@@ -11,49 +11,57 @@
   <!-- Google Font import /-->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" type="image/svg+xml" href="/game-icons--mad-scientist.svg" />
+  <link rel="icon" type="image/svg+xml" href="./assets/game-icons--mad-scientist.svg" />
   <link rel="stylesheet" href="style.css" />
   <title>Homepage</title>
 </head>
 
 <body>
-  <div class="root-container flex-container-column">
-    <header class="flex-container-column">
-      <div class="header-card card flex-container">
-        <div class="header-photo-container">
-          <h1 class="header-label">Roshkovan Dmitrii</h1>
-          <img class="header-photo card" src="./assets/img/profile-img.jpg" />
-        </div>
-        <div class="header-text-container flex-container-column">
-          <h2 class="card-label">About me</h2>
-          <p> In 2022, after a decade-long career in electronics in St. Petersburg, Russia, I moved to Ialoveni,
-            Moldova, transitioning to a FullStack Web Developer role. With a technical background and self-learning
-            habits, I quickly acquiresd new skills since May 2023, completing several personal projects like this
-            website.
-            My punctuality and perfectionism contribute to exceptional project quality.
-          </p>
-          <div class="links-container">
-            <a href="https://github.com/d1r0l">
-              <img class="icon" src="./assets/icons/github.svg" alt="">
-            </a>
-            <a href="https://www.linkedin.com/in/d1r0l/">
-              <img class="icon" src="./assets/icons/linkedin.svg" alt="">
-            </a>
+  <div class="flex-1 flex-container-column">
+    <header class="flex-container">
+      <div class="flex-container-column">
+        <div class="card flex-container">
+          <div class="header-photo-container">
+            <h1 class="header-label">Roshkovan Dmitrii</h1>
+            <img class="header-photo card" src="./assets/img/profile-img.jpg" />
+          </div>
+          <div class="flex-container-column">
+            <h2 class="card-label">About me</h2>
+            <p class="flex-1"> In 2022, after a decade-long career in electronics in St. Petersburg, Russia, I moved to
+              Ialoveni,
+              Moldova, transitioning to a FullStack Web Developer role. Since May 2023 with a technical background and
+              self-learning
+              habits, I quickly acquired new skills, completing several personal projects like
+              this
+              website.
+              My punctuality and perfectionism contribute to exceptional project quality.
+            </p>
+            <div class="flex-container">
+              <a class="link-icon" href="https://github.com/d1r0l">
+                <img class="icon" src="./assets/icons/github.svg" alt=""></a>
+              <a class="link-icon" href="https://www.linkedin.com/in/d1r0l/">
+                <img class="icon" src="./assets/icons/linkedin.svg" alt="">
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </header>
-    <main class="flex-container-column">
-      <h2>My work</h2>
-      <div class="projects-grid">
+    <main class="flex-1 flex-container">
+      <div class="flex-container-column flex-1">
+        <h2>My work</h2>
+        <div class="projects-grid">
+        </div>
       </div>
     </main>
-    <footer class="flex-container-column">
-      <div class="flex-container-column">
+    <footer class="flex-container">
+      <div class="flex-1 flex-container-column">
         <div class="flex-container">
-          <div class="footer-text-container flex-container-column">
+          <div class="footer-text-container flex-1 flex-container-column">
             <h2>Contact me</h2>
-            <p>Please get in touch if you think our work could be mutually benefitial!</p>
+            <p>
+              Please get in touch if you think
+              our work could be mutually benefitial!</p>
             <p>
               str. Ştefan cel Mare 43
               <br />
@@ -67,19 +75,19 @@
               <img class="icon" src="./assets/icons/mail.svg" alt="">
               <a href="mailto:roshkovan.d@gmail.com">roshkovan.d@gmail.com</a>
             </p>
-            <div class="links-container">
-              <a href="https://github.com/d1r0l">
+            <div class="flex-container">
+              <a class="link-icon" href="https://github.com/d1r0l">
                 <img class="icon" src="./assets/icons/github.svg" alt="">
               </a>
-              <a href="https://www.linkedin.com/in/d1r0l/">
+              <a class="link-icon" href="https://www.linkedin.com/in/d1r0l/">
                 <img class="icon" src="./assets/icons/linkedin.svg" alt="">
               </a>
             </div>
           </div>
           <img class="footer-photo" src="./assets/img/profile-img-2.jpg" />
         </div>
+        <button id="back-to-top" title="Back to top">Back to top</button>
       </div>
-      <button id="back-to-top" title="Back to top">Back to top</button>
     </footer>
   </div>
 </body>
