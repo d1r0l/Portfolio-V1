@@ -9,7 +9,7 @@ const loadCards = async () => {
 
   const projects = await fetchProjects()
 
-  const cardsDiv = document.querySelector('.projects-grid')
+  const cardsDiv = document.querySelector('.projects-flex-container')
 
   const createTag = (tag, props, children) => {
     const element = document.createElement(tag)
@@ -37,7 +37,7 @@ const loadCards = async () => {
     })
 
   for (const card of projects) {
-    const cardDiv = createTag('div', { className: 'project-card card' }, [
+    const cardDiv = createTag('li', { className: 'project-card card' }, [
       card.screenshot
         ? createTag('img', {
             className: 'screenshot',
