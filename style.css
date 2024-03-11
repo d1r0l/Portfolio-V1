@@ -61,21 +61,21 @@ table {
 
   --body-inline-padding: 96px;
   --header-photo-size: 500px;
-  --default-gap: 16px;
+  --default-gap: 1rem;
 }
 
 @media (min-width: 2200px) {
   :root {
     --body-inline-padding: 0px;
     --header-photo-size: 650px;
-    --default-gap: 32px;
+    --default-gap: 2rem;
   }
 }
 
 @media (min-width: 3000px) {
   :root {
     --header-photo-size: 800px;
-    --default-gap: 64px;
+    --default-gap: 4rem;
   }
 }
 
@@ -153,7 +153,11 @@ footer > div.flex-container-column {
 .flex-container-column {
   display: flex;
   flex-direction: column;
-  gap: var(--default-gap);
+  gap: 1.5rem;
+}
+
+.link-icons-container  {
+  gap: 1rem;
 }
 
 .icon {
@@ -247,7 +251,7 @@ header .card:first-child {
   color: var(--font-light-color);
 }
 
-header *:has(> .link-icon)  {
+header .link-icons-container  {
   align-self: end;
 }
 
@@ -330,23 +334,59 @@ footer .icon {
 }
 
 footer .link-icon .icon {
-  margin-top: var(--default-gap);
+  margin-top: 1rem;
   height: 4em;
   width: auto;
   filter: initial;
 }
 
 .footer-photo {
-  height: 500px;
-  width: auto;
+  width: 400px;
+  height: auto;
   align-self: center;
 }
 
 #back-to-top {
-  margin-top: var(--default-gap);
+  margin-top: 0.5rem;
 }
 
-@media (min-width: 1300px) {
+@media (min-width: 500px) and (max-width: 1299px) {
+  header .card:first-child {
+      --header-card-left-margin: calc((var(--header-photo-size) - (var(--header-photo-size) / 1.4)) / 2 - 1rem);
+      margin-block: var(--header-card-left-margin);
+      margin-left: var(--header-card-left-margin);
+    }
+
+  .header-photo-container {
+    position: relative;
+    margin-right: calc(var(--header-card-left-margin) + 1rem + 2px);
+  }
+
+  .header-label {
+    width: calc(var(--header-photo-size) - 1rem);
+    position: absolute;
+    bottom: calc(var(--header-card-left-margin) * -1 - 0.5rem);
+    transform: translateY(0) translateX(calc(var(--header-card-left-margin) * -1 - 0.5rem));
+    z-index: 1;
+    text-align: center;
+    font-size: 3.5rem;
+  }
+
+  .header-photo {
+    height: calc(var(--header-photo-size) / 1.4);
+    width: auto;
+    float: left;
+    transform: scale(1.4);
+  }
+
+  .footer-photo {
+    width: 400px;
+    height: auto;
+    align-self: center;
+  }
+} 
+
+@media (min-width:  1300px) {
   header .card:first-child {
       --header-card-left-margin: calc((var(--header-photo-size) - (var(--header-photo-size) / 1.4)) / 2 - 1rem);
       margin-block: var(--header-card-left-margin);

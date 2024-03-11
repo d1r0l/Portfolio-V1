@@ -23,7 +23,11 @@
         <div class="card flex-container">
           <div class="header-photo-container">
             <h1 class="header-label">Dmitrii Roshkovan</h1>
-            <img class="header-photo card" src="./assets/img/profile-img-1.jpg" alt="">
+            <picture>
+              <source srcset="./assets/img/profile-img-1-cropped-2.jpg" media="(max-width: 500px)" />
+              <source srcset="./assets/img/profile-img-1-cropped-1.jpg" media="(max-width: 1300px)" />
+              <img class="header-photo card" src="./assets/img/profile-img-1.jpg" alt="" />
+            </picture>
           </div>
           <div class="flex-container-column">
             <h2 class="card-label">About me</h2>
@@ -33,7 +37,7 @@
               self-learning habits, I quickly acquired new skills, completing several personal projects like this
               website. My punctuality and perfectionism contribute to exceptional project quality.
             </p>
-            <div class="flex-container">
+            <div class="flex-container link-icons-container">
               <a class="link-icon" href="https://github.com/d1r0l">
                 <img class="icon" src="./assets/icons/github.svg" alt=""></a>
               <a class="link-icon" href="https://www.linkedin.com/in/d1r0l/">
@@ -72,7 +76,7 @@
               <img class="icon" src="./assets/icons/mail.svg" alt="">
               <a href="mailto:roshkovan.d@gmail.com">roshkovan.d@gmail.com</a>
             </p>
-            <div class="flex-container">
+            <div class="flex-container link-icons-container">
               <a class="link-icon" href="https://github.com/d1r0l">
                 <img class="icon" src="./assets/icons/github.svg" alt="">
               </a>
@@ -81,7 +85,11 @@
               </a>
             </div>
           </div>
-          <img class="footer-photo" src="./assets/img/profile-img-2.jpg" />
+          <picture>
+            <source srcset="./assets/img/profile-img-2-cropped-2.jpg" media="(max-width: 500px)" />
+            <source srcset="./assets/img/profile-img-2-cropped-1.jpg" media="(max-width: 1300px)" />
+            <img class="footer-photo" src="./assets/img/profile-img-2.jpg" alt="" />
+          </picture>
         </div>
         <button id="back-to-top" title="Back to top">Back to top</button>
       </div>
