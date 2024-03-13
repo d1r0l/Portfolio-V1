@@ -9,7 +9,7 @@ const loadCards = async () => {
 
   const projects = await fetchProjects()
 
-  const cardsDiv = document.querySelector('.projects-flex-container')
+  const cardsDiv = document.querySelector('.projects-container')
 
   const createTag = (tag, props, children) => {
     const element = document.createElement(tag)
@@ -47,7 +47,7 @@ const loadCards = async () => {
         : createTag(
             'div',
             {
-              className: 'flex-container-column screenshot',
+              className: 'screenshot',
               style: `background-color: ${randomColors()}`
             },
             [

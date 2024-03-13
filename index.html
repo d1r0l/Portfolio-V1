@@ -17,48 +17,46 @@
 </head>
 
 <body>
-  <div class="flex-1 flex-container-column">
-    <header class="flex-container">
-      <div class="flex-container-column">
-        <div class="card flex-container">
+  <div>
+    <header>
+      <div>
+        <div class="card">
           <div class="header-photo-container">
             <h1 class="header-label">Dmitrii Roshkovan</h1>
             <picture>
-              <source srcset="./assets/img/profile-img-1-cropped-2.jpg" media="(max-width: 500px)" />
-              <source srcset="./assets/img/profile-img-1-cropped-1.jpg" media="(max-width: 1300px)" />
+              <source srcset="./assets/img/profile-img-1-cropped-2.jpg" media="(max-width: 699px)" />
+              <source srcset="./assets/img/profile-img-1-cropped-1.jpg" media="(max-width: 1299px)" />
               <img class="header-photo card" src="./assets/img/profile-img-1.jpg" alt="" />
             </picture>
           </div>
-          <div class="flex-container-column">
-            <h2 class="card-label">About me</h2>
-            <p class="flex-1 scrollable">
-              In 2022, after a decade-long career in electronics in St. Petersburg, Russia, I moved to Ialoveni,
-              Moldova, transitioning to a FullStack Web Developer role. Since May 2023 with a technical background and
-              self-learning habits, I quickly acquired new skills, completing several personal projects like this
-              website. My punctuality and perfectionism contribute to exceptional project quality.
-            </p>
-            <div class="flex-container link-icons-container">
-              <a class="link-icon" href="https://github.com/d1r0l">
-                <img class="icon" src="./assets/icons/github.svg" alt=""></a>
-              <a class="link-icon" href="https://www.linkedin.com/in/d1r0l/">
-                <img class="icon" src="./assets/icons/linkedin.svg" alt="">
-              </a>
-            </div>
+          <h2 class="card-label">About me</h2>
+          <p class="card-description">
+            In 2022, after a decade-long career in electronics in St. Petersburg, Russia, I moved to Ialoveni,
+            Moldova, transitioning to a FullStack Web Developer role. Since May 2023 with a technical background and
+            self-learning habits, I quickly acquired new skills, completing several personal projects like this
+            website. My punctuality and perfectionism contribute to exceptional project quality. When I'm not
+            tinkering with new tools, I'm hanging out with my wife, playing videogames with friends or skateboarding.
+          </p>
+          <div class="link-icons-container">
+            <a class="link-icon" href="https://github.com/d1r0l">
+              <img class="icon" src="./assets/icons/github.svg" alt=""></a>
+            <a class="link-icon" href="https://www.linkedin.com/in/d1r0l/">
+              <img class="icon" src="./assets/icons/linkedin.svg" alt="">
+            </a>
           </div>
         </div>
-      </div>
     </header>
-    <main class="flex-1 flex-container">
-      <div class="flex-container-column flex-1">
+    <main>
+      <div>
         <h2>My work</h2>
-        <ul class="projects-flex-container">
+        <ul class="projects-container">
         </ul>
       </div>
     </main>
-    <footer class="flex-container">
-      <div class="flex-1 flex-container-column">
-        <div class="flex-container">
-          <div class="footer-text-container flex-1 flex-container-column">
+    <footer>
+      <div>
+        <div>
+          <div class="footer-text-container">
             <h2>Contact me</h2>
             <p>
               Please get in touch if you think
@@ -76,7 +74,7 @@
               <img class="icon" src="./assets/icons/mail.svg" alt="">
               <a href="mailto:roshkovan.d@gmail.com">roshkovan.d@gmail.com</a>
             </p>
-            <div class="flex-container link-icons-container">
+            <div class="link-icons-container">
               <a class="link-icon" href="https://github.com/d1r0l">
                 <img class="icon" src="./assets/icons/github.svg" alt="">
               </a>
@@ -87,7 +85,7 @@
           </div>
           <picture>
             <source srcset="./assets/img/profile-img-2-cropped-2.jpg" media="(max-width: 500px)" />
-            <source srcset="./assets/img/profile-img-2-cropped-1.jpg" media="(max-width: 1300px)" />
+            <source srcset="./assets/img/profile-img-2-cropped-1.jpg" media="(max-width: 1000px)" />
             <img class="footer-photo" src="./assets/img/profile-img-2.jpg" alt="" />
           </picture>
         </div>
@@ -95,8 +93,7 @@
       </div>
     </footer>
   </div>
+  <script src="./js/index.js" type="module"></script>
 </body>
-
-<script src="./js/index.js" type="module"></script>
 
 </html>
