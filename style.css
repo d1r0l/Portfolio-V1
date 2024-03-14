@@ -60,8 +60,9 @@ table {
   --font-dark-color: #000000;
 
   --body-inline-padding: 128px;
-  --header-photo-size: 500px;
-  --default-gap: 1rem;
+  --header-photo-size: 600px;
+  --footer-photo-size: 600px;
+  --default-gap: 2rem;
   --header-photo-aspect-ratio: 0.8;
   --img-2-aspect-ratio: 1;
 }
@@ -101,6 +102,10 @@ p {
   line-height: 1.2;
 }
 
+picture {
+  display: flex;
+}
+
 header,
 main,
 footer {
@@ -122,7 +127,7 @@ footer > div {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: calc(var(--default-gap) * 1.5);
+  gap: var(--default-gap);
   max-width: calc(2024px - var(--body-inline-padding));
 }
 
@@ -224,16 +229,12 @@ header .card:first-child {
 }
 
 .header-label {
+  font-size: 3rem;
   color: var(--font-light-color);
 }
 
 header .card-label {
   margin-bottom: 2rem;
-}
-
-header .link-icons-container {
-  margin-top: 1rem;
-  justify-content: flex-end;
 }
 
 header .icon {
@@ -316,8 +317,15 @@ footer {
 
 footer > div > div {
   display: flex;
-  justify-content: center;
   gap: calc(var(--default-gap) * 1.5);
+  justify-content: space-between;
+}
+
+.footer-text-container {
+  height: min-content;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 footer .link-icons-container {
@@ -330,44 +338,18 @@ footer .icon {
 }
 
 footer .link-icon .icon {
-  margin-top: 1rem;
   height: 4em;
   width: auto;
   filter: initial;
 }
 
 .footer-photo {
-  width: 400px;
-  height: auto;
-  align-self: center;
-}
-
-.footer-text-container {
-  display: flex;
-  flex-direction: column;
-  gap: calc(var(--default-gap) * 1.5);
-  flex: 1;
-}
-
-#back-to-top {
-  margin-top: 0.5rem;
-}
-
-@media (min-width: 2024px) {
-  :root {
-    --header-photo-aspect-ratio: 0.8;
-    --body-inline-padding: 0px;
-    --header-photo-size: 800px;
-    --default-gap: 4rem;
-  }
+  height: var(--footer-photo-size);
+  width: auto;
+  align-self: flex-end;
 }
 
 @media (min-width: 1300px) {
-  :root {
-    --header-photo-size: 650px;
-    --default-gap: 2rem;
-  }
-
   header,
   main,
   footer {
@@ -382,7 +364,7 @@ footer .link-icon .icon {
     display: grid;
     grid-template-columns: min-content 1fr;
     grid-template-rows: min-content 1fr min-content;
-    column-gap: var(--default-gap);
+    column-gap: 2rem;
     max-height: calc(var(--header-photo-size) / 1.2 - 4rem);
   }
 
@@ -392,24 +374,25 @@ footer .link-icon .icon {
   }
   
   header .card-label {
-    margin-bottom: 1rem;
     grid-area: 1 / 2 / 2 / -1;
   }
   
   header .card-description {
-    flex: 1;
+    grid-area: 2 / 2 / 3 / -1;
     display: flex;
     flex-direction: column;
     overflow-y: auto;
-    grid-area: 2 / 2 / 3 / -1;
   }
 
   header .link-icons-container {
     grid-area: 3 / 2 / 4 / -1;
+    margin-top: 1rem;
+    justify-content: flex-end;
   }
 
   .header-photo {
     height: calc(var(--header-photo-size) / 1.2);
+    width: calc(var(--header-photo-size) / 1.2 * var(--header-photo-aspect-ratio));
     margin-block: -2rem;
     width: auto;
     transform-origin: right;
@@ -417,12 +400,26 @@ footer .link-icon .icon {
   }
 
   .header-label {
-    width: calc(var(--header-photo-size) - 2rem);
+    width: calc(var(--header-photo-size) * var(--header-photo-aspect-ratio) - 2rem);
     position: absolute;
-    bottom: -3rem;
-    transform: translateY(0) translateX(calc(var(--header-card-vertical-margin) * -1 - 0.5rem));
+    bottom: -4rem;
+    transform: translateY(0) translateX(calc(var(--header-card-horizontal-margin) * -1 - 1rem));
     z-index: 1;
     text-align: center;
+  }
+}
+
+@media (min-width: 2024px) {
+  :root {
+    --header-photo-aspect-ratio: 0.8;
+    --body-inline-padding: 0px;
+    --header-photo-size: 800px;
+    --footer-photo-size: 800px;
+    --default-gap: 4rem;
+  }
+
+  .header-label {
+    font-size: 4rem;
   }
 }
 
@@ -431,40 +428,41 @@ footer .link-icon .icon {
     --body-inline-padding: 96px;
     --header-photo-aspect-ratio: 1;
     --header-photo-size: 500px;
+    --footer-photo-size: 500px;
   }
   
   header,
   main,
   footer {
-    padding-inline: calc(var(--default-gap) * 6);
+    padding-inline: calc(var(--default-gap) * 3);
   }
 
   header .card:first-child {
-    --header-card-vertical-margin: calc((var(--header-photo-size) - var(--header-photo-size) / 1.2) * var(--header-photo-aspect-ratio) - 2rem);
+    --header-card-vertical-margin: calc((var(--header-photo-size) - var(--header-photo-size) / 2) * var(--header-photo-aspect-ratio) - 2rem);
     --header-card-horizontal-margin: calc((var(--header-photo-size) - var(--header-photo-size) / 1.2) - 2rem);
-    margin-block: var(--header-card-vertical-margin);
-    margin-left: var(--header-card-horizontal-margin);
+    margin-top: var(--header-card-vertical-margin);
   }
 
   .header-photo-container {
     position: relative;
-    margin-right: var(--default-gap);
+    margin-right: 2rem;
+    margin-bottom: calc(2rem - 2px);
     float: left;
   }
 
   .header-photo {
     width: calc(var(--header-photo-size) / 1.2);
+    height: calc(var(--header-photo-size) / 2);
     float: left;
     transform-origin: bottom right;
-    transform: scaleX(1.2) scaleY(calc(1.2 * var(--header-photo-aspect-ratio)));
+    transform: scaleX(1.2) scaleY(calc(2 * var(--header-photo-aspect-ratio)));
   }
 
   .header-label {
-    font-size: 3.5rem;
     position: absolute;
     width: max-content;
     top: calc(var(--header-card-top-margin) * -1 - 1rem);
-    transform: translateX(calc(var(--header-photo-size) / 2));
+    transform: translateX(calc(var(--header-photo-size) / 2)) translateY(calc(var(--header-photo-size) * -1 / 2 + 16px));
     z-index: 1;
   }
 
@@ -477,6 +475,7 @@ footer .link-icon .icon {
 @media (min-width: 700px) and (max-width: 1000px) {
   :root {
     --header-photo-size: 350px;
+    --footer-photo-size: 350px;
     --header-photo-aspect-ratio: 1;
     --body-inline-padding: 48px;
   }
@@ -485,7 +484,7 @@ footer .link-icon .icon {
   header,
   main,
   footer {
-    padding-inline: calc(var(--default-gap) * 3);
+    padding-inline: calc(var(--default-gap) * 1.5);
   }
 
   header .card-label {
@@ -553,11 +552,5 @@ footer .link-icon .icon {
     width: 100%;
     z-index: 1;
     text-align: center;
-  }
-
-  footer .footer-photo {
-    flex: 1;
-    width: 100%;
-    height: auto;
   }
 }
