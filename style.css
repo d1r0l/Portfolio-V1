@@ -60,8 +60,9 @@ table {
   --font-dark-color: #000000;
 
   --body-inline-padding: 128px;
-  --header-photo-size: 600px;
-  --footer-photo-size: 600px;
+  --header-photo-width: 600px;
+  --footer-photo-width: 600px;
+  --project-screenshot-width: 500px;
   --default-gap: 2rem;
   --header-photo-aspect-ratio: 0.8;
   --img-2-aspect-ratio: 1;
@@ -143,7 +144,7 @@ footer > div {
 
 .link-icons-container  {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   gap: 1rem;
 }
 
@@ -164,10 +165,6 @@ footer > div {
 .card-label {
   white-space: nowrap;
   text-overflow: ellipsis;
-}
-
-.scrollable {
-  overflow-y: auto;
 }
 
 ::-webkit-scrollbar {
@@ -258,12 +255,15 @@ main {
 .project-card {
   display: grid;
   grid-template-rows: 60% 40%;
+  grid-template-columns: 1fr;
+  width: var(--project-screenshot-width);
+  height: calc(var(--project-screenshot-width) / 16 * 9 / 0.6);
 }
 
 .project-card .screenshot {
+  width: 100%;
+  height: 100%;
   object-fit: contain;
-  height: 11.25rem;
-  width: 20rem;
   justify-content: center;
   align-items: center;
   font-size: 2rem;
@@ -284,7 +284,7 @@ main {
   padding: 1rem;
   display: grid;
   grid-template-columns: 1fr min-content;
-  grid-template-rows: 2rem 5rem;
+  grid-template-rows: 2rem 1fr;
   grid-template-areas: 'label links' 'description description';
   grid-gap: 1rem;
   align-items: center;
@@ -305,6 +305,8 @@ main {
 .project-card-grid > p {
   grid-area: description;
   align-self: flex-start;
+  height: 100%;
+  overflow-y: auto;
 }
 
 .project-card-grid .icon {
@@ -344,7 +346,7 @@ footer .link-icon .icon {
 }
 
 .footer-photo {
-  height: var(--footer-photo-size);
+  height: var(--footer-photo-width);
   width: auto;
   align-self: flex-end;
 }
@@ -357,15 +359,15 @@ footer .link-icon .icon {
   }
 
   header .card:first-child {
-    --header-card-vertical-margin: calc((var(--header-photo-size) - var(--header-photo-size) / 1.2) - 2rem);
-    --header-card-horizontal-margin: calc((var(--header-photo-size) - var(--header-photo-size) / 1.2) * var(--header-photo-aspect-ratio) - 2rem);
+    --header-card-vertical-margin: calc((var(--header-photo-width) - var(--header-photo-width) / 1.2) - 2rem);
+    --header-card-horizontal-margin: calc((var(--header-photo-width) - var(--header-photo-width) / 1.2) * var(--header-photo-aspect-ratio) - 2rem);
     margin-block: calc((var(--header-card-vertical-margin) + 2rem) / 2);
     margin-left: var(--header-card-horizontal-margin);
     display: grid;
     grid-template-columns: min-content 1fr;
     grid-template-rows: min-content 1fr min-content;
     column-gap: 2rem;
-    max-height: calc(var(--header-photo-size) / 1.2 - 4rem);
+    max-height: calc(var(--header-photo-width) / 1.2 - 4rem);
   }
 
   header .header-photo-container {
@@ -391,8 +393,8 @@ footer .link-icon .icon {
   }
 
   .header-photo {
-    height: calc(var(--header-photo-size) / 1.2);
-    width: calc(var(--header-photo-size) / 1.2 * var(--header-photo-aspect-ratio));
+    height: calc(var(--header-photo-width) / 1.2);
+    width: calc(var(--header-photo-width) / 1.2 * var(--header-photo-aspect-ratio));
     margin-block: -2rem;
     width: auto;
     transform-origin: right;
@@ -400,7 +402,7 @@ footer .link-icon .icon {
   }
 
   .header-label {
-    width: calc(var(--header-photo-size) * var(--header-photo-aspect-ratio) - 2rem);
+    width: calc(var(--header-photo-width) * var(--header-photo-aspect-ratio) - 2rem);
     position: absolute;
     bottom: -4rem;
     transform: translateY(0) translateX(calc(var(--header-card-horizontal-margin) * -1 - 1rem));
@@ -413,8 +415,9 @@ footer .link-icon .icon {
   :root {
     --header-photo-aspect-ratio: 0.8;
     --body-inline-padding: 0px;
-    --header-photo-size: 800px;
-    --footer-photo-size: 800px;
+    --header-photo-width: 800px;
+    --footer-photo-width: 800px;
+    --project-screenshot-width: 650px;
     --default-gap: 4rem;
   }
 
@@ -427,8 +430,9 @@ footer .link-icon .icon {
   :root {
     --body-inline-padding: 96px;
     --header-photo-aspect-ratio: 1;
-    --header-photo-size: 500px;
-    --footer-photo-size: 500px;
+    --header-photo-width: 500px;
+    --footer-photo-width: 500px;
+    --project-screenshot-width: 400px;
   }
   
   header,
@@ -438,8 +442,8 @@ footer .link-icon .icon {
   }
 
   header .card:first-child {
-    --header-card-vertical-margin: calc((var(--header-photo-size) - var(--header-photo-size) / 2) * var(--header-photo-aspect-ratio) - 2rem);
-    --header-card-horizontal-margin: calc((var(--header-photo-size) - var(--header-photo-size) / 1.2) - 2rem);
+    --header-card-vertical-margin: calc((var(--header-photo-width) - var(--header-photo-width) / 2) * var(--header-photo-aspect-ratio) - 2rem);
+    --header-card-horizontal-margin: calc((var(--header-photo-width) - var(--header-photo-width) / 1.2) - 2rem);
     margin-top: var(--header-card-vertical-margin);
   }
 
@@ -451,8 +455,8 @@ footer .link-icon .icon {
   }
 
   .header-photo {
-    width: calc(var(--header-photo-size) / 1.2);
-    height: calc(var(--header-photo-size) / 2);
+    width: calc(var(--header-photo-width) / 1.2);
+    height: calc(var(--header-photo-width) / 2);
     float: left;
     transform-origin: bottom right;
     transform: scaleX(1.2) scaleY(calc(2 * var(--header-photo-aspect-ratio)));
@@ -462,7 +466,7 @@ footer .link-icon .icon {
     position: absolute;
     width: max-content;
     top: calc(var(--header-card-top-margin) * -1 - 1rem);
-    transform: translateX(calc(var(--header-photo-size) / 2)) translateY(calc(var(--header-photo-size) * -1 / 2 + 16px));
+    transform: translateX(calc(var(--header-photo-width) / 2)) translateY(calc(var(--header-photo-width) * -1 / 2 + 16px));
     z-index: 1;
   }
 
@@ -474,8 +478,9 @@ footer .link-icon .icon {
 
 @media (min-width: 700px) and (max-width: 1000px) {
   :root {
-    --header-photo-size: 350px;
-    --footer-photo-size: 350px;
+    --header-photo-width: 350px;
+    --footer-photo-width: 350px;
+    --project-screenshot-width: 350px;
     --header-photo-aspect-ratio: 1;
     --body-inline-padding: 48px;
   }
