@@ -1,8 +1,4 @@
-/* CSS Reset Start
-   http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
+/* CSS Reset Start */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -23,7 +19,6 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
-/* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
 	display: block;
@@ -46,6 +41,9 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+picture > img {
+  display: block;
+}
 /* CSS Reset End */
 
 :root {
@@ -59,12 +57,16 @@ table {
   --font-light-color: #ffffff;
   --font-dark-color: #000000;
 
-  --body-inline-padding: 128px;
-  --header-photo-width: 600px;
-  --footer-photo-width: 600px;
-  --project-screenshot-width: 500px;
-  --default-gap: 2rem;
+  --body-max-width: 2024px;
+
+  --header-photo-width: 500px;
   --header-photo-aspect-ratio: 0.8;
+  --footer-photo-width: 800px;
+  --footer-photo-aspect-ratio: 0.8;
+  --project-screenshot-width: 450px;
+  --project-card-screenshot-ratio: 0.6;
+
+  --default-gap: 32px;
   --img-2-aspect-ratio: 1;
 }
 
@@ -73,88 +75,70 @@ html {
 }
 
 body {
-  font-family: var(--main-font);
-  color: var(--font-dark-color);
-}
-
-body > div {
   display: flex;
   flex-direction: column;
   background-color: var(--background-color);
   min-height: 100vh;
-  gap: calc(var(--default-gap) * 4);
+  font-family: var(--main-font);
+  color: var(--font-dark-color);
+  font-size: min(1rem, 8vw);
 }
 
 h1 {
-  font-size: 4rem;
+  font-size: min(4rem, 16vw);
 }
 
 h2 {
-  font-size: 3rem;
+  font-size: min(3rem, 12vw);
 }
 
 h3 {
-  font-size: 2rem;
+  font-size: min(2rem, 8vw);
 }
 
 p {
   font-family: var(--secondary-font);
-  font-size: 1.5rem;
+  font-size: min(1.5rem, 6vw);
   line-height: 1.2;
 }
 
-picture {
-  display: flex;
-}
-
-header,
-main,
-footer {
-  display: flex;
-  gap: var(--default-gap);
-  justify-content: center;
-  padding-inline: var(--body-inline-padding);
-}
-
-header,
-footer {
+body > * {
   padding-block: var(--default-gap);
+  padding-inline: calc(var(--default-gap) * 2);
   background-color: var(--main-color);
 }
 
-header > div,
-main > div,
-footer > div {
+main {
+  background-color: var(--background-color);
+  flex: 1;
   display: flex;
-  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  gap: var(--default-gap);
-  max-width: calc(2024px - var(--body-inline-padding));
 }
 
-main > div,
-footer > div {
-  flex: 1;
+body > * > div {
+  max-width: var(--body-max-width);
+  margin-inline: auto;
 }
 
 :link {
-  text-decoration: none;
+  text-decoration: inherit;
   color: inherit;
+}
+
+.link-icon > img {
+  display: block;
 }
 
 .link-icons-container  {
   display: flex;
   justify-content: flex-end;
-  gap: 1rem;
+  gap: 1em;
 }
 
 .icon {
-  vertical-align: bottom;
+  vertical-align: baseline;
   width: auto;
-}
-
-.link-icon {
-  display: contents;
 }
 
 .card {
@@ -192,12 +176,13 @@ footer > div {
 }
 
 button {
-  height: 3rem;
   background-color: var(--card-color);
-  border: var(--shadow-color) 0.25rem solid;
-  border-radius: 0.5rem;
+  border: var(--shadow-color) 0.25em solid;
+  border-radius: 0.5em;
   font-family: var(--secondary-font);
-  font-size: 1.5rem;
+  font-size: min(1.5em, 6vw);
+  height: 2.5em;
+  width: 8em;
 }
 
 header {
@@ -217,47 +202,40 @@ header::after {
     var(--background-color) 50%,
     #00000000 50%
   );
+}
+
+header > div {
+  position: relative;
   z-index: 1;
 }
 
-header .card:first-child {
+header div.card {
   padding: 2rem;
-  z-index: 2;
 }
 
-.header-label {
-  font-size: 3rem;
+header h1.label {
   color: var(--font-light-color);
 }
 
-header .card-label {
-  margin-bottom: 2rem;
-}
-
 header .icon {
-  height: 3rem;
-}
-
-main {
-  flex: 1;
-  align-items: stretch;
-  justify-content: center;
+  height: 3em;
 }
 
 .projects-container {
-  margin-top: calc(var(--default-gap) / 2);
+  margin-block: calc(var(--default-gap) * 2);
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   flex-wrap: wrap;
-  gap: calc(var(--default-gap) * 4);
+  gap: calc(var(--default-gap) * 2);
+  font-size: min(1.5rem, 6vw);
 }
 
 .project-card {
   display: grid;
-  grid-template-rows: 60% 40%;
+  grid-template-rows: calc(100% * var(--project-card-screenshot-ratio)) calc(100% - (100% * var(--project-card-screenshot-ratio)));
   grid-template-columns: 1fr;
-  width: var(--project-screenshot-width);
-  height: calc(var(--project-screenshot-width) / 16 * 9 / 0.6);
+  width: min(var(--project-screenshot-width), 100%);
+  aspect-ratio: calc(16 / 9 * var(--project-card-screenshot-ratio));
 }
 
 .project-card .screenshot {
@@ -266,7 +244,6 @@ main {
   object-fit: contain;
   justify-content: center;
   align-items: center;
-  font-size: 2rem;
 }
 
 .project-card div.screenshot {
@@ -274,7 +251,6 @@ main {
 }
 
 .project-card .screenshot-label {
-  font-size: 1.5rem;
   max-width: 50%;
   text-align: center;
   color: var(--font-light-color);
@@ -290,16 +266,16 @@ main {
   align-items: center;
 }
 
-.project-card-grid > h2 {
-  font-size: 1.5rem;
-  grid-area: label;
-}
-
 .project-card-grid > div {
   grid-area: links;
   display: flex;
   gap: 0.5rem;
   justify-content: space-between;
+}
+
+.project-card-grid > h2 {
+  font-size: inherit;
+  grid-area: label;
 }
 
 .project-card-grid > p {
@@ -310,7 +286,7 @@ main {
 }
 
 .project-card-grid .icon {
-  height: 2em;
+  height: 1em;
 }
 
 footer {
@@ -319,15 +295,16 @@ footer {
 
 footer > div > div {
   display: flex;
-  gap: calc(var(--default-gap) * 1.5);
+  gap: var(--default-gap);
   justify-content: space-between;
 }
 
-.footer-text-container {
+footer .text-container {
+  flex: 1 1 min-content;
   height: min-content;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.5em;
 }
 
 footer .link-icons-container {
@@ -346,9 +323,76 @@ footer .link-icon .icon {
 }
 
 .footer-photo {
-  height: var(--footer-photo-width);
-  width: auto;
+  max-width: max-content;
+  flex: 1 1 max-content;
+  display: flex;
   align-self: flex-end;
+}
+
+.footer-photo > img {
+  flex: 1;
+  width: 100%;
+}
+
+#back-to-top {
+  margin-top: var(--default-gap);
+  width: 100%;
+}
+
+@media screen and (min-width: 1300px) {
+  header > div {
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    grid-template-rows: 100%;
+  }
+
+  header h1.label {
+    grid-area: 1 / 1 / 2 / 2;
+    z-index: 2;
+    padding: var(--default-gap);
+    display: flex;
+    align-items: end;
+    text-align: center;
+  }
+
+  header picture {
+    grid-area: 1 / 1 / 2 / 2;
+    z-index: 1;
+  }
+
+  header div.card {
+    grid-area: 1 / 1 / -1 / -1;
+    margin: var(--default-gap);
+  }
+
+  header .text-container {
+    margin-block: var(--default-gap);
+    margin-right: var(--default-gap);
+    padding: var(--default-gap);
+    grid-area: 1 / 2 / -1 / -1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+  }
+
+  header .text-container > .description {
+    flex: 1;
+  }
+}
+
+/* @media (min-width: 2024px) {
+  :root {
+    --header-photo-aspect-ratio: 0.8;
+    --body-inline-padding: 0px;
+    --header-photo-width: 800px;
+    --footer-photo-width: 800px;
+    --project-screenshot-width: 650px;
+    --default-gap: 4rem;
+  }
+
+  .header-label {
+    font-size: 4rem;
+  }
 }
 
 @media (min-width: 1300px) {
@@ -411,28 +455,13 @@ footer .link-icon .icon {
   }
 }
 
-@media (min-width: 2024px) {
-  :root {
-    --header-photo-aspect-ratio: 0.8;
-    --body-inline-padding: 0px;
-    --header-photo-width: 800px;
-    --footer-photo-width: 800px;
-    --project-screenshot-width: 650px;
-    --default-gap: 4rem;
-  }
-
-  .header-label {
-    font-size: 4rem;
-  }
-}
-
 @media (min-width: 700px) and (max-width: 1299px) {
   :root {
     --body-inline-padding: 96px;
     --header-photo-aspect-ratio: 1;
     --header-photo-width: 500px;
     --footer-photo-width: 500px;
-    --project-screenshot-width: 400px;
+    --project-screenshot-width: 350px;
   }
   
   header,
@@ -465,7 +494,7 @@ footer .link-icon .icon {
   .header-label {
     position: absolute;
     width: max-content;
-    top: calc(var(--header-card-top-margin) * -1 - 1rem);
+    top: calc(var(--header-card-vertical-margin) * -1 - 1rem);
     transform: translateX(calc(var(--header-photo-width) / 2)) translateY(calc(var(--header-photo-width) * -1 / 2 + 16px));
     z-index: 1;
   }
@@ -502,49 +531,87 @@ footer .link-icon .icon {
   }
 }
 
+
 @media (max-width: 699px) {
-  header .card:first-child {
-    box-shadow: initial;
-    background-color: initial;
+  :root {
+    --default-gap: 1rem;
+    --project-screenshot-width: calc(100vw - 2 * var(--default-gap));
+    --project-card-screenshot-ratio: 0.5;
+    --header-photo-width: 300px;
+    --footer-photo-width: 500px;
   }
-  
+
   header,
   main,
   footer {
-    padding-inline: calc(var(--default-gap) * 1);
+    padding-inline: var(--default-gap);
   }
 
-  header::before {
-    content: '';
-    display: block;
-    position: absolute;
-    left:0;
-    top: 10%;
-    width: 100%;
-    height: 50%;
-    background-image: linear-gradient(
-      to top left,
-      var(--background-color) 50%,
-      #00000000 50%
-    );
-    z-index: 1;
-  }
-
-  header::after {
-    content: '';
-    display: block;
-    position: absolute;
-    left:0;
-    top: 60%;
-    width: 100%;
-    height: 50%;
-    background-color: var(--background-color);
-    z-index: 1;
+  header {
+    position: initial;
   }
 
   .header-photo {
+    position: relative;
     width: 100%;
+    max-width: 300px;
     height: auto;
+  }
+
+  header::after,
+  header::before {
+    all:initial;
+  }
+
+  header {
+    background-color: var(--background-color);
+  }
+
+  .header-photo-container::before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: calc(var(--default-gap) * -1);
+    top: 40%;
+    width: calc(100% + var(--default-gap) * 2);
+    height: 50%;
+    background-image: linear-gradient(
+      to top left,
+      #00000000 50%,
+       var(--main-color) 50%
+    );
+    z-index: -1;
+  }
+
+  .header-photo-container::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: calc(var(--default-gap) * -1);
+    top: -100%;
+    width: calc(100% + var(--default-gap) * 2);
+    height: 140%;
+    background-color: var(--main-color);
+    z-index: -1;
+  }
+  .header-photo-container > picture {
+    justify-content: center;
+  }
+
+  header .card:first-child {
+    box-shadow: initial;
+    background-color: initial;
+    padding: 0;
+  }
+
+  header .card-label {
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  header .link-icons-container {
+    margin-top: 2rem;
+    justify-content: center;
   }
 
   .header-photo-container{
@@ -553,9 +620,81 @@ footer .link-icon .icon {
 
   .header-label {
     position: absolute;
-    bottom: 0;
-    width: 100%;
+    bottom: 1rem;
+    left: 50%;
+    width: 300px;
+    max-width: calc(100vw - 2 * var(--default-gap));
+    transform: translateX(-50%);
     z-index: 1;
     text-align: center;
+    word-wrap: break-word;
+    text-overflow: ellipsis;
+  }
+
+  footer > div > div {
+    flex-direction: column;
+    flex: 1;
+  }
+
+  footer picture {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .footer-photo {
+    flex: 1;
+    width: 100%;
+    max-width: 300px;
+    height: auto;
   }
 }
+
+@media (max-width: 350px) {
+  :root {
+    --project-card-screenshot-ratio: 0.4;
+  }
+
+  .project-card-grid {
+    grid-gap: 0;
+  }
+}
+
+@media (max-width: 250px) {
+  .header-label {
+    font-size: 1.75rem;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  h3 {
+    font-size: 1.25rem;
+  }
+  
+  p, span,
+  .projects-container .screenshot > *,
+  .projects-container .project-card-grid > * {
+    font-size: 1rem;
+    line-height: 1;
+    overflow-wrap: anywhere;
+    hyphens: auto;
+  }
+
+  header .link-icon .icon,
+  footer .link-icon .icon {
+    height: 2.5rem;
+  }
+
+  .projects-container .project-card-grid .icon {
+    height: 1rem;
+  }
+
+  .project-card {
+    width: auto;
+  }
+} */

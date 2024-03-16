@@ -17,82 +17,78 @@
 </head>
 
 <body>
-  <div>
-    <header>
+  <header>
+    <div>
+      <h1 class="label">Dmitrii Roshkovan</h1>
+      <picture class="header-photo card">
+        <source srcset="./assets/img/profile-img-1-cropped-1.jpg" media="(max-width: 699px)" />
+        <img src="./assets/img/profile-img-1.jpg" alt="" />
+      </picture>
+      <div class="card"></div>
+      <div class="text-container">
+        <h2 class="label">About me</h2>
+        <p class="description">
+          In 2022, after a decade-long career in electronics in St. Petersburg, Russia, I moved to Ialoveni,
+          Moldova, transitioning to a FullStack Web Developer role. Since May 2023 with a technical background and
+          self-learning habits, I quickly acquired new skills, completing several personal projects like this
+          website. My punctuality and perfectionism ensures exceptional project quality. When I'm not
+          tinkering with new tools, I'm hanging out with my wife, playing videogames with friends or skateboarding.
+        </p>
+        <div class="link-icons-container">
+          <a class="link-icon" href="https://github.com/d1r0l">
+            <img class="icon" src="./assets/icons/github.svg" alt=""></a>
+          <a class="link-icon" href="https://www.linkedin.com/in/d1r0l/">
+            <img class="icon" src="./assets/icons/linkedin.svg" alt="">
+          </a>
+        </div>
+      </div>
+
+  </header>
+  <main>
+    <div>
+      <h2>My work</h2>
+      <ul class="projects-container">
+      </ul>
+    </div>
+  </main>
+  <footer>
+    <div>
       <div>
-        <div class="card">
-          <div class="header-photo-container">
-            <h1 class="header-label">Dmitrii Roshkovan</h1>
-            <picture>
-              <source srcset="./assets/img/profile-img-1-cropped-2.jpg" media="(max-width: 699px)" />
-              <source srcset="./assets/img/profile-img-1-cropped-1.jpg" media="(max-width: 1299px)" />
-              <img class="header-photo card" src="./assets/img/profile-img-1.jpg" alt="" />
-            </picture>
-          </div>
-          <h2 class="card-label">About me</h2>
-          <p class="card-description">
-            In 2022, after a decade-long career in electronics in St. Petersburg, Russia, I moved to Ialoveni,
-            Moldova, transitioning to a FullStack Web Developer role. Since May 2023 with a technical background and
-            self-learning habits, I quickly acquired new skills, completing several personal projects like this
-            website. My punctuality and perfectionism ensures exceptional project quality. When I'm not
-            tinkering with new tools, I'm hanging out with my wife, playing videogames with friends or skateboarding.
+        <div class="text-container">
+          <h2>Contact me</h2>
+          <p>
+            Please get in touch if you think
+            our work could be mutually benefitial!</p>
+          <p>
+            str. Ştefan cel Mare 43
+            <br />
+            Costești, Ialoveni, Republica Moldova, MD-6813
+          </p>
+          <p>
+            <img class="icon" src="./assets/icons/phone.svg" alt="">
+            <a href="tel:+37367568281">+373 675 68 281</a>
+          </p>
+          <p>
+            <img class="icon" src="./assets/icons/mail.svg" alt="">
+            <a href="mailto:roshkovan.d@gmail.com">roshkovan.d@<wbr>gmail.com</a>
           </p>
           <div class="link-icons-container">
             <a class="link-icon" href="https://github.com/d1r0l">
-              <img class="icon" src="./assets/icons/github.svg" alt=""></a>
+              <img class="icon" src="./assets/icons/github.svg" alt="">
+            </a>
             <a class="link-icon" href="https://www.linkedin.com/in/d1r0l/">
               <img class="icon" src="./assets/icons/linkedin.svg" alt="">
             </a>
           </div>
         </div>
-    </header>
-    <main>
-      <div>
-        <h2>My work</h2>
-        <ul class="projects-container">
-        </ul>
+        <picture class="footer-photo">
+          <source srcset="./assets/img/profile-img-2-cropped-1.jpg" media="(max-width: 1299px)" />
+          <img src="./assets/img/profile-img-2.jpg" alt="" />
+        </picture>
       </div>
-    </main>
-    <footer>
-      <div>
-        <div>
-          <div class="footer-text-container">
-            <h2>Contact me</h2>
-            <p>
-              Please get in touch if you think
-              our work could be mutually benefitial!</p>
-            <p>
-              str. Ştefan cel Mare 43
-              <br />
-              Costești, Ialoveni, Republica Moldova, MD-6813
-            </p>
-            <p>
-              <img class="icon" src="./assets/icons/phone.svg" alt="">
-              <a href="tel:+37367568281">+373 675 68 281</a>
-            </p>
-            <p>
-              <img class="icon" src="./assets/icons/mail.svg" alt="">
-              <a href="mailto:roshkovan.d@gmail.com">roshkovan.d@gmail.com</a>
-            </p>
-            <div class="link-icons-container">
-              <a class="link-icon" href="https://github.com/d1r0l">
-                <img class="icon" src="./assets/icons/github.svg" alt="">
-              </a>
-              <a class="link-icon" href="https://www.linkedin.com/in/d1r0l/">
-                <img class="icon" src="./assets/icons/linkedin.svg" alt="">
-              </a>
-            </div>
-          </div>
-          <picture>
-            <source srcset="./assets/img/profile-img-2-cropped-2.jpg" media="(max-width: 699px)" />
-            <source srcset="./assets/img/profile-img-2-cropped-1.jpg" media="(max-width: 1299px)" />
-            <img class="footer-photo" src="./assets/img/profile-img-2.jpg" alt="" />
-          </picture>
-        </div>
-        <button id="back-to-top" title="Back to top">Back to top</button>
-      </div>
-    </footer>
-  </div>
+      <button id="back-to-top" title="Back to top">Back to top</button>
+    </div>
+  </footer>
   <script src="./js/index.js" type="module"></script>
 </body>
 
