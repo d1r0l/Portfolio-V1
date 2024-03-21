@@ -12,7 +12,7 @@
   --body-max-width: 2024px;
 
   --project-screenshot-width: 450px;
-  --project-card-screenshot-ratio: 0.6;
+  --project-card-screenshot-ratio: 0.55;
 
   --default-gap: 32px;
   --img-2-aspect-ratio: 1;
@@ -261,12 +261,12 @@ header .icon {
 }
 
 .project-card-grid {
-  padding: calc(var(--default-gap) / 2);
+  padding: var(--default-gap);
   display: grid;
   grid-template-columns: 1fr min-content;
   grid-template-rows: 2rem 1fr;
   grid-template-areas: 'label links' 'description description';
-  grid-gap: 1rem;
+  grid-gap: var(--default-gap);
   align-items: center;
 }
 
@@ -327,8 +327,8 @@ footer .link-icon .icon {
 }
 
 footer picture {
-  max-width: 50%;
-  flex: 1 1 max-content;
+  max-width: 60%;
+  flex: 0 1 auto;
   display: flex;
   align-self: flex-end;
 }
@@ -391,14 +391,14 @@ footer picture > img {
 
 @media screen and (500px <= width < 1200px) {
   header {
-    --photo-text-padding: 25vw;
+    --header-grid-photo-text-padding: 25vw;
     padding-inline: var(--default-gap);
   }
 
   header > div {
     display: grid; 
     grid-template-columns: calc(130px + 100vw / 5.7) calc(100vw - (130px + 100vw / 5.7) - 2 * var(--default-gap));
-    grid-template-rows: min-content var(--photo-text-padding) 1fr;
+    grid-template-rows: min-content var(--header-grid-photo-text-padding) 1fr;
   }
 
   header h1.label {
@@ -450,11 +450,15 @@ footer picture > img {
     display: grid;
     float: left;
     width: calc(130px + 100vw / 5.7 - var(--default-gap));
-    height: var(--photo-text-padding);
+    height: var(--header-grid-photo-text-padding);
   }
 }
 
 @media screen and (500px <= width < 850px)  {
+  :root {
+    --default-gap: 16px;
+  }
+
   header h1.label {
     font-size: 3rem;
   }
@@ -462,5 +466,137 @@ footer picture > img {
   header h2.label {
     margin-block: 2rem;
     font-size: 2.5rem;
+  }
+
+  header,
+  footer {
+    padding-block: calc(var(--default-gap) * 2);
+  }
+
+  header {
+    padding-top: var(--default-gap);
+  }
+
+  footer > div > div {
+    flex-direction: column;
+    gap: calc(var(--default-gap) * 2);
+  }
+
+  footer picture {
+    max-width: 100%;
+  }
+
+  #back-to-top {
+    margin-top: calc(var(--default-gap) * 2);
+  }
+}
+
+@media screen and (width < 500px) {
+  :root {
+    --default-gap: 16px;
+  }
+
+  footer,
+  main,
+  header {
+    padding: var(--default-gap);
+  }
+
+  header {
+    padding-bottom: var(--default-gap)
+  };
+
+  footer {
+    padding-top: var(--default-gap)
+  };
+
+  header div.card {
+    display: none;
+  }
+
+  header > div {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: min-content 1fr;
+  }
+
+  header > div,
+  footer > div,
+  footer > div > div {
+    gap: calc(var(--default-gap) * 2);
+  }
+
+  header picture {
+    grid-area: 1 / 1 / 2 / -1;
+  }
+
+  header picture > img {
+    width: 100%;
+  }
+
+  header h1.label {
+    grid-area: 1 / 1 / 2 / -1;
+    z-index: 1;
+    display: flex;
+    text-align: center;
+    align-items: end;
+    padding-bottom: var(--default-gap);
+  }
+
+  header .text-container {
+    grid-area: 2 / 1 / -1 / -1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  footer > div > div {
+    flex-direction: column;
+  }
+  
+  footer picture {
+    max-width: initial;
+    width: 100%;
+  }
+
+  header .text-container .link-icons-container,
+  footer .text-container .link-icons-container {
+    align-self: center;
+  }
+}
+
+@media screen and (width < 300px) {
+  footer,
+  main,
+  header {
+    padding: calc(var(--default-gap) / 2);
+  }
+
+  header {
+    padding-bottom: var(--default-gap)
+  };
+
+  footer {
+    padding-top: var(--default-gap)
+  };
+}
+
+@media screen and (width < 200px) {
+  footer,
+  main,
+  header {
+    padding: 0;
+  }
+
+  header {
+    padding-bottom: var(--default-gap)
+  };
+
+  footer {
+    padding-top: var(--default-gap)
+  };
+
+  .text-container {
+    padding-inline: calc(var(--default-gap) / 2);
   }
 }
