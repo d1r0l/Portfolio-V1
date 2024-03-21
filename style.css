@@ -14,7 +14,7 @@
 
   --body-max-width: 2024px;
 
-  --project-card-screenshot-ratio: 0.55;
+  --project-card-screenshot-ratio: 0.5;
 
   --default-gap: 32px;
   --img-2-aspect-ratio: 1;
@@ -675,7 +675,7 @@ footer picture > img {
 @media screen and (width < 350px) {
   :root {
     --default-gap: 8px;
-    --project-card-screenshot-ratio: 0.5;
+    --project-card-screenshot-ratio: 0.45;
   }
 
   h1 {
