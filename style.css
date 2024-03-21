@@ -81,24 +81,24 @@ body {
   color: var(--font-dark-color);
   background-color: var(--background-color);
   font-family: var(--main-font);
-  font-size: min(1rem, 8vw);
+  font-size: 1rem;
 }
 
 h1 {
-  font-size: min(4rem, 16vw);
+  font-size: 4rem;
 }
 
 h2 {
-  font-size: min(3rem, 12vw);
+  font-size: 3rem;
 }
 
 h3 {
-  font-size: min(2rem, 8vw);
+  font-size: 2rem;
 }
 
 p {
   font-family: var(--secondary-font);
-  font-size: min(1.5rem, 6vw);
+  font-size: 1.5rem;
   line-height: 1.2;
 }
 
@@ -180,7 +180,7 @@ button {
   border: var(--shadow-color) 0.25em solid;
   border-radius: 0.5em;
   font-family: var(--secondary-font);
-  font-size: min(1.5em, 6vw);
+  font-size: 1.5em;
   height: 2.5em;
   width: 8em;
 }
@@ -231,7 +231,7 @@ header .icon {
   justify-content: space-around;
   flex-wrap: wrap;
   gap: calc(var(--default-gap) * 2);
-  font-size: min(1.5rem, 6vw);
+  font-size: 1.5rem;
 }
 
 .project-card {
@@ -565,32 +565,51 @@ footer picture > img {
   }
 }
 
-@media screen and (width < 300px) {
-  footer,
-  main,
-  header {
-    padding: calc(var(--default-gap) / 2);
+@media screen and (width < 350px) {
+  :root {
+    --default-gap: 8px;
+    --project-card-screenshot-ratio: 0.5;
   }
 
-  header {
-    padding-bottom: var(--default-gap)
-  };
+  h1 {
+    font-size: min(4rem, max(18vw, 2rem));
+  }
 
-  footer {
-    padding-top: var(--default-gap)
-  };
+  h2 {
+    font-size: min(3rem, max(16vw, 1.75rem));
+  }
+
+  .project-card .screenshot-label {
+    max-width: calc(100% - var(--default-gap) * 2);
+  }
+
+  header .icon {
+    height: min(3em, max(16vw, 2em));
+  }
+
+  footer .link-icon .icon {
+    height: min(3em, max(16vw, 2em));
+  }
 }
 
 @media screen and (width < 200px) {
+  :root {
+    --project-card-screenshot-ratio: 0.4;
+  }
+
   footer,
   main,
   header {
-    padding: 0;
+    padding: 2px;
   }
 
   header {
     padding-bottom: var(--default-gap)
   };
+
+  main .card-label {
+    overflow: hidden;
+  }
 
   footer {
     padding-top: var(--default-gap)
