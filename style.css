@@ -367,12 +367,12 @@ footer picture > img {
 
   header div.card {
     grid-area: 1 / 1 / -1 / -1;
-    margin: var(--default-gap);
+    margin-block: var(--default-gap);
+    margin-left: var(--default-gap);
   }
 
   header .text-container {
     margin-block: var(--default-gap);
-    margin-right: var(--default-gap);
     padding: var(--default-gap);
     grid-area: 1 / 2 / -1 / -1;
     display: flex;
@@ -633,6 +633,10 @@ footer picture > img {
     font-size: min(3rem, max(16vw, 1.75rem));
   }
 
+  p, span {
+    font-size: min(1.5rem, max(8vw, 1rem));
+  }
+
   .project-card .screenshot-label {
     max-width: calc(100% - var(--default-gap) * 2);
   }
@@ -671,5 +675,10 @@ footer picture > img {
 
   .text-container {
     padding-inline: calc(var(--default-gap) / 2);
+  }
+
+  h1, h2, h3, p, span {
+    word-wrap: break-word;
+    word-break: break-all;
   }
 }
