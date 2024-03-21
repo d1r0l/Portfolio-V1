@@ -8,6 +8,9 @@
   --shadow-color: #00000050;
   --font-light-color: #ffffff;
   --font-dark-color: #000000;
+  --button-color: #876e8b;
+  --button-outline-color: #87108b;
+  --button-hover-color: #554658;
 
   --body-max-width: 2024px;
 
@@ -150,6 +153,10 @@ body > * > div {
   text-overflow: ellipsis;
 }
 
+.invisible {
+  display: none;
+}
+
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
@@ -175,13 +182,59 @@ body > * > div {
 }
 
 button {
-  background-color: var(--card-color);
-  border: var(--shadow-color) 0.25em solid;
-  border-radius: 0.5em;
+  background-color: var(--button-color);
+  border-width: 0;
+  outline: none;
+  border-radius: 0.3em;
+  box-shadow: 0 1px 4px var(--shadow-color);
   font-family: var(--secondary-font);
   font-size: 1.5em;
   height: 2.5em;
   width: 8em;
+  transition: background-color .3s;
+  overflow: hidden;
+  position: relative;
+}
+
+button > * {
+  position: relative;
+}
+
+button span {
+  display: block;
+  padding: auto;
+}
+
+button:hover {
+  background-color: var(--button-hover-color);
+}
+
+button:focus {
+  border: 3px solid var(--button-outline-color);
+  box-shadow: 0 0 5px var(--button-outline-color);
+}
+
+button:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: 0;
+  padding-top: 0;
+  border-radius: 100%;
+  background-color: rgba(240, 240, 240, .3);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+button:active:before {
+  width: 120%;
+  padding-top: 120%;
+  transition: width .2s ease-out, padding-top .2s ease-out;
 }
 
 header {
@@ -277,7 +330,7 @@ header .icon {
 }
 
 .project-card-grid > h2 {
-  font-size: inherit;
+  font-size: 1.5em;
   grid-area: label;
 }
 
@@ -639,6 +692,10 @@ footer picture > img {
 
   .project-card .screenshot-label {
     max-width: calc(100% - var(--default-gap) * 2);
+  }
+
+  .project-card-grid > h2 {
+    font-size: min(2rem, max(12vw, 1.5rem));
   }
 
   header .icon {

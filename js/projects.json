@@ -1,50 +1,10 @@
 [
   {
     "title": "Bloglist",
-    "description": "Bloglist description",
+    "description": "First advanced project with backend server connected to Mongo.DB",
     "link": "https://bloglist.d1r0l.xyz/",
     "gitLink": "https://github.com/d1r0l/bloglist",
     "screenshot": "./assets/img/screenshots/Screenshot_BlogList.png",
     "altScreenshot": "screenshot of Bloglist webpage"
-  },
-  {
-    "title": "Project title",
-    "description": "Project description",
-    "link": "link2",
-    "gitLink": "gitlink2",
-    "screenshot": "./assets/img/screenshots/Screenshot_BlogList2.png",
-    "altScreenshot": "screenshot of project webpage"
-  },
-  {
-    "title": "Project title",
-    "description": "Project description",
-    "link": "link2",
-    "gitLink": "gitlink2",
-    "screenshot": "./assets/img/screenshots/Screenshot_BlogList3.png",
-    "altScreenshot": "screenshot of project webpage"
-  },
-  {
-    "title": "Project title",
-    "description": "Project description is very long and filled with a boilerplate and other stuff and takes a lot of space and fill all over the p tag",
-    "link": "link2",
-    "gitLink": "gitlink2",
-    "screenshot": "",
-    "altScreenshot": "screenshot of project webpage"
-  },
-  {
-    "title": "Project title",
-    "description": "Project description",
-    "link": "link2",
-    "gitLink": "gitlink2",
-    "screenshot": "",
-    "altScreenshot": "screenshot of project webpage"
-  },
-  {
-    "title": "Project title",
-    "description": "Project description",
-    "link": "link2",
-    "gitLink": "gitlink2",
-    "screenshot": "",
-    "altScreenshot": "screenshot of project webpage"
   }
 ]
