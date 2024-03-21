@@ -496,6 +496,57 @@ footer picture > img {
     --default-gap: 16px;
   }
 
+  header {
+    background-color: var(--background-color);
+  }
+
+  header::after,
+  header::before {
+    all:initial;
+  }
+
+  header picture {
+    position: relative;
+  }
+
+  header picture::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: calc(var(--default-gap) * -1);
+    top: 40%;
+    width: calc(100% + var(--default-gap) * 2);
+    height: 50%;
+    background-image: linear-gradient(
+      to top left,
+      #00000000 50%,
+       var(--main-color) 50%
+    );
+    z-index: -1;
+  }
+
+  header picture::before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: calc(var(--default-gap) * -1);
+    top: -100%;
+    width: calc(100% + var(--default-gap) * 2);
+    height: 140%;
+    background-color: var(--main-color);
+    z-index: -1;
+  }
+
+  .header-photo-container > picture {
+    justify-content: center;
+  }
+
+  header .card:first-child {
+    box-shadow: initial;
+    background-color: initial;
+    padding: 0;
+  }
+
   footer,
   main,
   header {
@@ -541,6 +592,10 @@ footer picture > img {
     text-align: center;
     align-items: end;
     padding-bottom: var(--default-gap);
+  }
+
+  h2:not(.card-label) {
+    text-align: center;
   }
 
   header .text-container {
