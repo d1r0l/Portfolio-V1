@@ -345,7 +345,7 @@ header .icon {
 }
 
 .project-card-grid .icon {
-  height: 1em;
+  height: 1.5em;
 }
 
 footer {
@@ -699,6 +699,10 @@ footer picture > img {
 
   .project-card-grid > h2 {
     font-size: min(2rem, max(12vw, 1.5rem));
+  }
+
+  .project-card-grid .icon {
+    height: min(2rem, max(12vw, 1.5rem));
   }
 
   header .icon {

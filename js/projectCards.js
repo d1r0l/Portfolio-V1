@@ -1,6 +1,6 @@
 import randomColors from './randomColors.js'
 
-const loadCards = async () => {
+const projectCards = async () => {
   const fetchProjects = async () => {
     const responsePromise = await fetch('./js/projects.json')
     const response = await responsePromise.json()
@@ -71,4 +71,4 @@ const loadCards = async () => {
   }
 }
 
-export default loadCards
+export default projectCards
