@@ -12,7 +12,7 @@
   --color-shadow: #00000050;
   --color-font-light: #ffffff;
   --color-font-dark: #000000;
-  
+
   --color-button: var(--color-secondary);
   --color-button-outline: var(--color-secondary-dark);
   --color-button-hover: var(--color-secondary-light);
@@ -43,14 +43,14 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 
-html {
-  height: 100%;
-  font-size: 16px;
-}
-
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
 	display: block;
+}
+
+html {
+  height: 100%;
+  font-size: 16px;
 }
 
 picture > img {
@@ -58,22 +58,22 @@ picture > img {
 }
 
 ol, ul {
-	list-style: none;
-}
-
-blockquote, q {
-	quotes: none;
+  list-style: none;
 }
 
 blockquote:before, blockquote:after,
 q:before, q:after {
-	content: '';
-	content: none;
+  content: '';
+  content: none;
+}
+
+blockquote, q {
+  quotes: none;
 }
 
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 
@@ -86,6 +86,7 @@ body {
   background-color: var(--color-background);
   font-family: var(--font-main);
   font-size: 1rem;
+  overflow-x: hidden;
 }
 
 h1 {
@@ -135,7 +136,7 @@ body > * > div {
   display: block;
 }
 
-.link-icons-container  {
+.link-icons-container {
   display: flex;
   justify-content: flex-end;
   gap: 1em;
@@ -156,7 +157,7 @@ body > * > div {
   text-overflow: ellipsis;
 }
 
-.invisible {
+.disabled {
   display: none;
 }
 
@@ -248,15 +249,14 @@ header::after {
   content: '';
   display: block;
   position: absolute;
-  left:0;
+  left: 0;
   top: 50%;
   width: 100%;
   height: 50%;
-  background-image: linear-gradient(
-    to top left,
-    var(--color-background) 50%,
-    #00000000 50%
-  );
+  background-image:
+    linear-gradient(to top left,
+      var(--color-background) 50%,
+      #00000000 50%);
 }
 
 header > div {
@@ -398,6 +398,41 @@ footer picture > img {
   width: 100%;
 }
 
+.hidden {
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateX(100%);
+  transition: all 0.5s ease-out;
+}
+
+header .hidden {
+  transform: translateX(-100%);
+}
+
+footer .hidden {
+  transform: translateX(-100%);
+}
+
+.show {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateX(0);
+}
+
+header .show,
+footer .show {
+  transform: translateY(0);
+}
+
+
+@media (prefers-reduced-motion) {
+
+  button:active:before,
+  .hidden {
+    transition: none;
+  }
+}
+
 @media screen and (width >= 1200px) {
   header > div {
     display: grid;
@@ -434,7 +469,7 @@ footer picture > img {
     display: flex;
     flex-direction: column;
     gap: 1.5em;
-    height:0;
+    height: 0;
     min-height: calc(100% - 4 * var(--gap-default-width));
   }
 
@@ -451,7 +486,7 @@ footer picture > img {
   }
 
   header > div {
-    display: grid; 
+    display: grid;
     grid-template-columns: calc(130px + 100vw / 5.7) calc(100vw - (130px + 100vw / 5.7) - 2 * var(--gap-default-width));
     grid-template-rows: min-content var(--header-grid-photo-text-padding) 1fr;
   }
@@ -509,7 +544,7 @@ footer picture > img {
   }
 }
 
-@media screen and (500px <= width < 850px)  {
+@media screen and (500px <= width < 850px) {
   :root {
     --gap-default-width: 16px;
   }
@@ -557,7 +592,7 @@ footer picture > img {
 
   header::after,
   header::before {
-    all:initial;
+    all: initial;
   }
 
   header picture {
@@ -572,11 +607,10 @@ footer picture > img {
     top: 40%;
     width: calc(100% + var(--gap-default-width) * 2);
     height: 50%;
-    background-image: linear-gradient(
-      to top left,
-      #00000000 50%,
-       var(--color-primary) 50%
-    );
+    background-image: 
+      linear-gradient(to top left,
+        #00000000 50%,
+        var(--color-primary) 50%);
     z-index: -1;
   }
 
@@ -610,11 +644,11 @@ footer picture > img {
 
   header {
     padding-bottom: var(--gap-default-width)
-  };
+  }
 
   footer {
     padding-top: var(--gap-default-width)
-  };
+  }
 
   header div.card {
     display: none;
@@ -663,7 +697,7 @@ footer picture > img {
   footer > div > div {
     flex-direction: column;
   }
-  
+
   footer picture {
     max-width: initial;
     width: 100%;
@@ -689,7 +723,8 @@ footer picture > img {
     font-size: min(3rem, max(16vw, 1.75rem));
   }
 
-  p, span {
+  p,
+  span {
     font-size: min(1.5rem, max(8vw, 1rem));
   }
 
@@ -727,7 +762,7 @@ footer picture > img {
 
   header {
     padding-bottom: var(--gap-default-width)
-  };
+  }
 
   main .card-label {
     overflow: hidden;
@@ -735,13 +770,17 @@ footer picture > img {
 
   footer {
     padding-top: var(--gap-default-width)
-  };
+  }
 
   .text-container {
     padding-inline: calc(var(--gap-default-width) / 2);
   }
 
-  h1, h2, h3, p, span {
+  h1,
+  h2,
+  h3,
+  p,
+  span {
     word-wrap: break-word;
     word-break: break-all;
   }

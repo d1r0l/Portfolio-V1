@@ -1,9 +1,9 @@
 const backToTopButton = () => {
   const resizeObserver = new ResizeObserver(entries => {
     if (entries[0].target.clientHeight <= window.innerHeight) {
-      document.getElementById('back-to-top').classList.add('invisible')
+      document.getElementById('back-to-top').classList.add('disabled')
     } else {
-      document.getElementById('back-to-top').classList.remove('invisible')
+      document.getElementById('back-to-top').classList.remove('disabled')
     }
   })
 

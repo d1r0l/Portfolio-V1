@@ -1,5 +1,7 @@
 import projectCards from './projectCards.js'
 import backToTopButton from './backToTopButton.js'
+import transitions from './transitions.js'
 
-projectCards()
+await projectCards()
 backToTopButton()
+transitions()

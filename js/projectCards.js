@@ -37,7 +37,7 @@ const projectCards = async () => {
     })
 
   for (const card of projects) {
-    const cardDiv = createTag('li', { className: 'project-card card' }, [
+    const cardDiv = createTag('li', { className: 'project-card card hidden' }, [
       card.screenshot
         ? createTag('img', {
             className: 'screenshot',
