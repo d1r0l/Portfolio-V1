@@ -76,6 +76,9 @@ table {
   border-spacing: 0;
 }
 
+html {
+  overflow-x: hidden;
+}
 
 body {
   line-height: 1;
@@ -405,10 +408,7 @@ footer picture > img {
   transition: all 0.5s ease-out;
 }
 
-header .hidden {
-  transform: translateX(-100%);
-}
-
+header .hidden,
 footer .hidden {
   transform: translateX(-100%);
 }
@@ -590,40 +590,26 @@ footer .show {
     background-color: var(--color-background);
   }
 
-  header::after,
-  header::before {
-    all: initial;
-  }
-
-  header picture {
-    position: relative;
-  }
-
-  header picture::after {
-    content: '';
-    display: block;
-    position: absolute;
+  header::after {
     left: calc(var(--gap-default-width) * -1);
-    top: 40%;
+    top: calc(100vw / 2);
     width: calc(100% + var(--gap-default-width) * 2);
-    height: 50%;
+    height: calc(100vw / 2);
     background-image: 
       linear-gradient(to top left,
         #00000000 50%,
         var(--color-primary) 50%);
-    z-index: -1;
   }
 
-  header picture::before {
+  header::before {
     content: '';
     display: block;
     position: absolute;
     left: calc(var(--gap-default-width) * -1);
     top: -100%;
     width: calc(100% + var(--gap-default-width) * 2);
-    height: 140%;
+    height: calc(100% + 100vw / 2);
     background-color: var(--color-primary);
-    z-index: -1;
   }
 
   .header-photo-container > picture {
