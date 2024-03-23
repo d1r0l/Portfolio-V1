@@ -1,14 +1,7 @@
 import randomColors from './randomColors.js'
+import projects from './projects.json'
 
 const projectCards = async () => {
-  const fetchProjects = async () => {
-    const responsePromise = await fetch('./js/projects.json')
-    const response = await responsePromise.json()
-    return response
-  }
-
-  const projects = await fetchProjects()
-
   const cardsDiv = document.querySelector('.projects-container')
 
   const createTag = (tag, props, children) => {

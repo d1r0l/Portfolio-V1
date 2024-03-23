@@ -4,6 +4,7 @@ const transitions = () => {
     const showOnIntersection = entry => {
       if (entry.isIntersecting) entry.target.classList.add('show')
     }
+    console.log(entries)
 
     for (let i = 0; i < entries.length; i++) {
       if (entries[i].target.className.includes('project-card')) {
