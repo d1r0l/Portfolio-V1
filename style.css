@@ -376,6 +376,7 @@ footer .link-icons-container {
 footer .icon {
   height: 1em;
   filter: invert(1);
+  vertical-align: middle;
 }
 
 footer .link-icon .icon {
