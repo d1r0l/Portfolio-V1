@@ -1,5 +1,5 @@
 import randomColors from './randomColors.js'
-import projects from './projects.json'
+import projects from './projects.js'
 
 const projectCards = async () => {
   const cardsDiv = document.querySelector('.projects-container')
