@@ -24,3 +24,9 @@ reference
 *.njsproj
 *.sln
 *.sw?
+
+#deployment
+.dockerignore
+dockerfile
+fly.toml
+
