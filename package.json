@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "dev-host": "vite --host",
-    "build": "rm -rf dist/* && cp index.html dist/ && cp style.css dist/ && cp -r assets dist/ && cp -r js dist/ && fly deploy"
+    "build": "rm -rf dist/* && cp index.html dist/ && cp style.css dist/ && cp -r assets dist/ && cp -r js dist/",
+    "deploy": "npm run build && fly deploy"
   },
   "devDependencies": {
     "vite": "^5.1.4"
