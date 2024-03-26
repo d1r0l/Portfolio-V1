@@ -44,14 +44,14 @@ const projectCards = async () => {
               style: `background-color: ${randomColors()}`
             },
             [
-              createTag('span', {
+              createTag('h3', {
                 className: 'screenshot-label',
                 textContent: 'No screenshot of the project available'
               })
             ]
           ),
       createTag('div', { className: 'project-card-grid' }, [
-        createTag('h2', { className: 'card-label', textContent: card.title }),
+        createTag('h3', { className: 'card-label', textContent: card.title }),
         createTag('div', {}, [
           createTag('a', { href: card.gitLink }, [gitIcon()]),
           createTag('a', { href: card.link }, [linkIcon()])
