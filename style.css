@@ -387,8 +387,8 @@ footer img {
 }
 
 .project-card-grid > h3 {
-  padding-block: 0.15em;
   grid-area: label;
+  line-height: 1.5;
   overflow-x: hidden;
 }
 
