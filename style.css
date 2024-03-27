@@ -22,7 +22,7 @@
 
   --desktop-header-pic-width: 300px;
   --tablet-header-card-pic-padding: 35vw;
-  --footer-desktop-height: 400px;
+  --footer-desktop-max-height: 400px;
   --footer-tablet-height: 300px;
 }
 
@@ -42,8 +42,8 @@ time, mark, audio, video {
 	margin: 0;
 	padding: 0;
 	border: 0;
-	font-size: 100%;
 	font: inherit;
+	font-size: 100%;
 	vertical-align: baseline;
 }
 
@@ -55,6 +55,7 @@ footer, header, hgroup, menu, nav, section {
 html {
   height: 100%;
   font-size: 16px;
+  overflow-x: hidden;
 }
 
 picture > img {
@@ -67,8 +68,8 @@ ol, ul {
   list-style: none;
 }
 
-blockquote:before, blockquote:after,
-q:before, q:after {
+blockquote::before, blockquote::after,
+q::before, q::after {
   content: '';
   content: none;
 }
@@ -80,10 +81,6 @@ blockquote, q {
 table {
   border-collapse: collapse;
   border-spacing: 0;
-}
-
-html {
-  overflow-x: hidden;
 }
 
 body {
@@ -143,10 +140,6 @@ body > * > div {
   color: inherit;
 }
 
-.link-icon > img {
-  display: block;
-}
-
 .link-icons-container {
   display: flex;
   justify-content: flex-end;
@@ -157,6 +150,10 @@ body > * > div {
   height: 1em;
   vertical-align: middle;
   width: auto;
+}
+
+footer p .icon {
+  filter: invert(1);
 }
 
 .link-icons-container .icon {
@@ -234,7 +231,7 @@ button:focus {
   box-shadow: 0 0 9px var(--color-button-outline);
 }
 
-button:before {
+button::before {
   content: "";
   position: absolute;
   top: 50%;
@@ -243,7 +240,7 @@ button:before {
   width: 0;
   padding-top: 0;
   border-radius: 100%;
-  background-color: rgba(240, 240, 240, .3);
+  background-color: rgb(240 240 240 / 30%);
   -webkit-transform: translate(-50%, -50%);
   -moz-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
@@ -251,7 +248,7 @@ button:before {
   transform: translate(-50%, -50%);
 }
 
-button:active:before {
+button:active::before {
   width: 120%;
   padding-top: 120%;
   transition: width .2s ease-out, padding-top .2s ease-out;
@@ -303,6 +300,38 @@ header h1.label {
   color: var(--color-font-light);
 }
 
+footer {
+  color: var(--color-font-light);
+}
+
+footer > div > div {
+  display: flex;
+  gap: var(--gap-default-width);
+  justify-content: space-between;
+  height: var(--footer-desktop-max-height);
+}
+
+footer .text-container {
+  height: min-content;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+footer .link-icons-container {
+  justify-content: flex-start;
+}
+
+footer picture {
+  height: 100%;
+  width: auto;
+}
+
+footer img {
+  height: 100%;
+  width: auto;
+}
+
 .projects-container {
   margin-block: calc(var(--gap-default-width) * 2);
   display: flex;
@@ -342,9 +371,10 @@ header h1.label {
 .project-card-grid {
   padding: var(--gap-default-width);
   display: grid;
-  grid-template-columns: 1fr min-content;
-  grid-template-rows: 2rem 1fr;
-  grid-template-areas: 'label links' 'description description';
+  grid-template: 
+    'label links' 2rem
+    'description description' 1fr
+    / 1fr min-content;
   grid-gap: 1em;
   align-items: center;
 }
@@ -367,35 +397,8 @@ header h1.label {
   height: 100%;
 }
 
-footer {
-  color: var(--color-font-light);
-}
-
-footer p .icon {
-  filter: invert(1);
-}
-
-footer > div > div {
-  display: flex;
-  gap: var(--gap-default-width);
-  justify-content: space-between;
-  height: var(--footer-desktop-height);
-}
-
-footer .text-container {
-  height: min-content;
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
-}
-
-footer .link-icons-container {
-  justify-content: flex-start;
-}
-
-footer img {
-  height: 100%;
-  width: auto;
+.link-icon > img {
+  display: block;
 }
 
 #back-to-top {
@@ -427,8 +430,7 @@ footer .show {
 }
 
 @media (prefers-reduced-motion) {
-
-  button:active:before,
+  button:active::before,
   .hidden {
     transition: none;
   }
@@ -486,12 +488,12 @@ footer .show {
     --gap-default-width: 16px;
   }
 
-  footer > div > div {
-    height: var(--footer-tablet-height);
-  }
-
   p {
     line-height: 1;  
+  }
+
+  footer > div > div {
+    height: calc(var(--footer-desktop-max-height) * 0.8);
   }
 } 
 
@@ -588,10 +590,6 @@ footer .show {
     --gap-default-width: 8px;
   }
 
-  header {
-    background-color: var(--color-background);
-  }
-
   header::before {
     left: calc(var(--gap-default-width) * -1);
     top: -100%;
@@ -612,6 +610,11 @@ footer .show {
         var(--color-primary) 50%);
   }
 
+  header {
+    background-color: var(--color-background);
+    padding-bottom: var(--gap-default-width)
+  }
+
   header .card:first-child {
     box-shadow: initial;
     background-color: initial;
@@ -622,10 +625,6 @@ footer .show {
   main,
   header {
     padding: var(--gap-default-width);
-  }
-
-  header {
-    padding-bottom: var(--gap-default-width)
   }
 
   footer {
@@ -700,27 +699,6 @@ footer .show {
     top: calc(100vw / 1.5);
   }
 
-  h1 {
-    font-size: 1.5rem;
-  }
-  
-  h2 {
-    font-size: 1.25rem;
-  }
-  
-  h3 {
-    font-size: 1.125rem;
-  }
-  
-  p,
-  .project-card-grid > div {
-    font-size: 1em;
-  }
-
-  .link-icons-container .icon {
-    height: 1.5rem;
-  }
-
   header > div {
     display: grid;
     grid-template-columns: 1fr;
@@ -741,5 +719,26 @@ footer .show {
 
   header .text-container {
     grid-area: 3 / 1 / -1 / -1;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+  
+  h2 {
+    font-size: 1.25rem;
+  }
+  
+  h3 {
+    font-size: 1.125rem;
+  }
+  
+  p,
+  .project-card-grid > div {
+    font-size: 1em;
+  }
+
+  .link-icons-container .icon {
+    height: 1.5rem;
   }
 }

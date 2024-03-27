@@ -7,9 +7,12 @@
     "dev": "vite",
     "dev-host": "vite --host",
     "build": "rm -rf dist/* && cp index.html dist/ && cp style.css dist/ && cp -r assets dist/ && cp -r js dist/",
-    "deploy": "npm run build && fly deploy"
+    "deploy": "npm run build && fly deploy",
+    "stylelint": "npx stylelint \"*.css\""
   },
   "devDependencies": {
+    "stylelint": "^16.3.1",
+    "stylelint-config-standard": "^36.0.0",
     "vite": "^5.1.4"
   }
 }
