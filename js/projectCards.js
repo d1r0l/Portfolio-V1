@@ -32,15 +32,24 @@ const projectCards = async () => {
   for (const card of projects) {
     const cardDiv = createTag('li', { className: 'project-card card hidden' }, [
       card.screenshot
-        ? createTag('img', {
-            className: 'screenshot',
-            src: card.screenshot,
-            alt: card.altScreenshot
-          })
+        ? createTag(
+            'div',
+            {
+              className: 'screenshot-container',
+              style: `background-color: ${randomColors()}`
+            },
+            [
+              createTag('img', {
+                className: 'screenshot',
+                src: card.screenshot,
+                alt: card.altScreenshot
+              })
+            ]
+          )
         : createTag(
             'div',
             {
-              className: 'screenshot',
+              className: 'screenshot-container',
               style: `background-color: ${randomColors()}`
             },
             [

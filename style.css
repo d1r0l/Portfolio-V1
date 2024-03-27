@@ -269,7 +269,7 @@ header::before {
   background-image:
     linear-gradient(to top left,
       var(--color-background) 50%,
-      #00000000 50%);
+      #00000000 calc(50% + 1px));
 }
 
 header::after {
@@ -344,7 +344,7 @@ footer img {
   display: grid;
   grid-template-rows: min-content 1fr;
   grid-template-columns: 1fr;
-  width: min(300px, 100%);
+  width: min(380px, 100%);
   height: auto;
 }
 
@@ -357,8 +357,15 @@ footer img {
   align-items: center;
 }
 
-.project-card div.screenshot {
+.project-card .screenshot-container {
+  width: calc(100% - var(--gap-default-width));
+  height: auto;
+  aspect-ratio: 16/9;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: calc(var(--gap-default-width) / 2);
+  margin-bottom: 0;
 }
 
 .project-card .screenshot-label {
@@ -496,6 +503,10 @@ footer .show {
   footer > div > div {
     height: calc(var(--footer-desktop-max-height) * 0.8);
   }
+
+  .project-card {
+    width: min(300px, 100%);
+  }
 } 
 
 @media screen and (356px <= width < 720px) {
@@ -608,7 +619,7 @@ footer .show {
     background-image: 
       linear-gradient(to top left,
         #00000000 50%,
-        var(--color-primary) 50%);
+        var(--color-primary) calc(50% + 0.5px));
   }
 
   header {

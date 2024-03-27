@@ -9,13 +9,13 @@ const projects = [
     altScreenshot: 'screenshot of Bloglist webpage'
   },
   {
-    title: 'Bloglist',
+    title: 'MDN Web Docs',
     description:
-      'First advanced project with React & Node.js backend server connected to Mongo.DB',
-    link: 'https://bloglist.d1r0l.xyz/',
-    gitLink: 'https://github.com/d1r0l/bloglist',
-    screenshot: './assets/img/screenshots/Screenshot_BlogList.png',
-    altScreenshot: 'screenshot of Bloglist webpage'
+      '(This is not my project) Web documentation of the MDN Web Docs website',
+    link: 'https://developer.mozilla.org/en-US/docs/Web',
+    gitLink: 'https://github.com/mdn/',
+    screenshot: './assets/img/screenshots/Screenshot_MDN.png',
+    altScreenshot: 'screenshot of MDN Docks webpage'
   },
   {
     title: 'Blank Page',
